@@ -1,0 +1,310 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Packages
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+\usepackage{lastpage}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{thmtools}
+\usepackage{shadethm}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{graphicx}
+\graphicspath{ {./Images/} }
+\usepackage{pdfpages}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Environment setup
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\newrobustcmd\ExampleText{%
+An \textit{inhomogeneous linear} differential equation has the form
+\begin{align}
+L[v ] = f,
+\end{align}
+where $L$ is a linear differential operator, $v$ is the dependent
+variable, and $f$ is a given non−zero function of the independent
+variables alone.
+}
+\mdfdefinestyle{theoremstyle}{%
+linecolor=black,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{Problem}{Problem}
+\newenvironment{Solution}{\textbf{Solution.}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{Computing and Business}                            % <-- course name   
+\newcommand\hwnumber{1}                                 % <-- homework number
+\newcommand\Information{Neil Bugeja 51000L}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{Neil Bugeja 51000L}
+\rhead{\includegraphics[width=2.5cm]{logo-hkust.png}}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3cm}
+            
+        \Huge
+        \textbf{CIS2350}
+            
+        \vspace{1cm}
+        \huge
+        Red Wine Neural Network
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+        
+            
+        \vfill
+        
+         \course \
+        \vspace{1cm}
+            
+        \includegraphics[width=0.4\textwidth]{logo-hkust.png}
+        \\
+        
+        \Large
+        
+        \today
+            
+    \end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Start the assignment now
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%New problem
+\newpage
+\noindent A sequential neural network was constructed using Tensorflow and Keras
+\subsubsection*{Setting up and reading data}
+\noindent At the beginning of the program, multiple imports are present that are used throughout the program. Their functionality range from reading the data set, to constructing the NN and to even create models that will be used to demonstrate the application.\\
+
+\noindent First, apart from the imports, we set a name that will be used for the model and set the TensorBoard location. After this, panda is used to read the red wine dataset and the input variables (fixed acidity, density, alcohol, etc.) are assigned as X and the output variable (quality) is assigned as y. Finally, the data is simply outputted to confirm that everything is assigned as intended.\\
+
+\begin{center}
+\includegraphics[scale=0.45]{Images/Beginning.png}
+\centering
+\end{center}
+
+
+
+\subsubsection*{Training, testing and creating the model}
+\noindent As stated in the assignment requirements, a 80/20 split was done, resulting in 1279 training cases and 320 test cases. After this, a sequential model is created and multiple layers are added to it. We first have the input layer, which is where the data will be inputted from. It's shape is set to the number of elements we have in the input (fixed acidity, density, alcohol, etc). After this, we have a number of hidden layers that are used by the NN to learn what elements make up a good quality wine. This number is set to 11 as per the assignment guidelines. Finally, we have our output layer.\\
+\noindent \\The model is compiled using generic loss, optimizer and metrics parementers and later the training data is fed into the model so the training can commence.
+
+\begin{center}
+\includegraphics[scale=0.47]{Images/Middle2.png}
+\centering
+\end{center}
+
+
+\subsubsection*{Loss, Accuracy and model}
+\noindent In the final parts of the project, we display the NN's loss and accuracy so we can determine if the model has actually learned patterns rather then simple memorising the data. After this, ann\_visualizer is used to create a diagram of out NN.\\
+
+\begin{center}
+\includegraphics[scale=0.45]{Images/End2.png}
+\centering
+\end{center}
+
+\noindent Below please find a diagram of the model created.
+
+\includepdf[pages={1}]{network.gv.pdf}
+
+\subsection*{Optimisation}
+\subsubsection*{TensorBoard}
+\noindent TensorBoard is used to save the model everytime a change is made. For example, we first have 11 hidden layers and we name the model appropriatly by altering the NAME variable at the beginning. Next, we re run the program but this time we only keep 7 hidden layers. Again, we name the model appropriatly. After running both models, we can access TensorBoard and we have a various graphs that show us the difference in performance between the two models.\\
+
+\noindent Using TensorBoards, we can make multiple changes to the model by altering its number of hidden layers, epochs, activation and loss function, etc.
+
+\begin{center}
+\includegraphics[scale=0.45]{Images/TensorBoard.png}
+\centering
+\end{center}
+
+\newpage
+\subsubsection*{Validation Data}
+\noindent During each epoc our model is being trained on the training data and will learn the features of that data. The goal is to create a model that is able to accurately predict data that the model has not seen based on what it has been trained on.\\
+
+\noindent With a validation set, we are removing a percentage of the training set and we will use that percentage as validation. During training, the model is going to predict on the validation set during data and see how well it did. This means that we are going to able to see the model's loss and accuracy on the training set and the validation set.\\
+
+\noindent Another benifit of including validation data is that it makes sure that the model is not over fitting. This means that the model is not only learning the specifics of the training set and memorize them, but it is learning after each epoc by the predictions that it is performing on the validation set which it has not seen before\\
+
+\subsubsection*{Number of epocs}
+\noindent Two models were ran (one with 200 epocs and one with 1000 epocs) and their performance was saved on TensorBoard. Let the orange line represent the model with 200 epocs, and the green line represents the model with 1000 epocs. In this instance, we are comparing the validation data not the training data. The reason for this is that the validation data provides a more accurate representation of how well the model is performing as it is making predictions on data that it has not yet seen.\\
+
+\noindent As is demonstrated in the graphs below, the 1000 epocs model is reaching a higher accuracy, but over time it's losses are increasing significantly. This means that the model is accuratly predicting the data better then its counterpart, but the times in which it fails it is doing so with a bigger margin.
+
+\begin{center}
+\includegraphics[scale=0.3]{Images/epocComparism.png}
+\centering
+\end{center}
+
+
+\subsubsection*{Batch Size}
+\noindent A batch size is simply the number of samples that will be passed through to the network at one time. A batch size will greatly improve the time it takes to perform the training, but again, this is a variable that must be fine tuned using TensorBoard.
+
+\newpage
+\subsection*{Hidden Layers}
+\noindent The number of hidden layers to construct the model with was also tested. Below find various graphs demonstrating the model's performance using variable data. The graphs are as follows:
+
+\begin{itemize}
+  \item Blue  \hspace{6mm}: 11 hidden layers
+  \item Orange\quad:  6 hidden layers
+  \item Green \hspace{4mm}:  3 hidden layers
+  \item Grey  \hspace{6mm}:  31hidden layers
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.3]{Images/hiddenLayers.png}
+\centering
+\end{center}
+
+\noindent Using the same reasoning we used in determining the appropriate number of epocs, we can see do great difference between the various models, but the model with the 6 hidden layers appears to be performing the best.
+
+\subsubsection*{Final Model}
+\noindent Using the optimisations mentioned above, the final model looks like this:\\
+
+\lstinputlisting[language = python]{model.py}
+
+
+\newpage
+\subsection*{Models}
+\noindent A number of models can be applied on the dataset to better understand how the quality of the wine is being determined.\\
+
+\noindent Using pyplot the total quality of wines is able to be shown, along with a barchart to graphically present this data.
+
+\begin{center}
+\includegraphics[scale=0.65]{Images/BarChart.png}
+\centering
+\end{center} 
+
+\newpage
+
+\noindent Additionally, seaborn was used to draw a heatmap of the red wine dataset. This is unseful as it informs us of which element is effecting quality the most
+
+\begin{center}
+\includegraphics[scale=0.4]{Images/HeatMap.png}
+\centering
+\end{center}
+
+\noindent From the heat map, we can see that alcohol plays the biggest effect on quality (0.5) with sulphates taking the second place (0.3).
+
+
+\newpage
+\noindent Also using seaborn, a bar graph is constructed demonstrating the alcohol level vs quality of the wines.
+
+\begin{center}
+\includegraphics[scale=0.65]{Images/seaBarChart.png}
+\centering
+\end{center}
+
+\includepdf[pages=-, pagecommand={}]{Red Wine Quality.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Complete the assignment now
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
